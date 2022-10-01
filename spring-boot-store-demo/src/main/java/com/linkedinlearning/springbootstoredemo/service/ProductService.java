@@ -1,6 +1,7 @@
 package com.linkedinlearning.springbootstoredemo.service;
 
 import com.linkedinlearning.springbootstoredemo.model.Product;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -21,6 +22,7 @@ public class ProductService {
         return jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Product.class));
     }
 
+    @NotNull
     public Product insert(Product product) {
         jdbcTemplate.update(
                 "INSERT INTO products VALUES(?, ?, ?, ?, ?)",
