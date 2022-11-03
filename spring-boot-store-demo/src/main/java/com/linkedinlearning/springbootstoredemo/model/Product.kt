@@ -1,7 +1,5 @@
 package com.linkedinlearning.springbootstoredemo.model
 
-import java.util.*
-
 /**
  * A product available in the store
  */
