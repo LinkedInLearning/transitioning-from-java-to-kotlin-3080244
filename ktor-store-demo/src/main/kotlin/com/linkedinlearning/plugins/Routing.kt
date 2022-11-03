@@ -8,6 +8,11 @@ import io.ktor.server.request.*
 
 fun Application.configureRouting() {
     routing {
+
+        get("/") {
+            call.respondText("Hello Ktor!!!!")
+        }
+
         get("/products") {
             call.respondText("A list of products")
         }
