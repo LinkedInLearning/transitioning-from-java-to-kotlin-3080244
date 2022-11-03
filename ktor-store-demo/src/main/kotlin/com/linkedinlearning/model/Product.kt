@@ -1,5 +1,8 @@
 package com.linkedinlearning.model
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class Product(
     val upc: String,
     val name: String,

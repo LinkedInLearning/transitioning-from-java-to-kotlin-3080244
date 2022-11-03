@@ -1,5 +1,6 @@
 package com.linkedinlearning.plugins
 
+import com.linkedinlearning.model.IN_MEMORY_PRODUCTS
 import io.ktor.server.routing.*
 import io.ktor.http.*
 import io.ktor.server.application.*
@@ -14,7 +15,7 @@ fun Application.configureRouting() {
         }
 
         get("/products") {
-            call.respondText("A list of products")
+            call.respond(IN_MEMORY_PRODUCTS)
         }
     }
 }
