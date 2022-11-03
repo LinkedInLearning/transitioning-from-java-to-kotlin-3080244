@@ -9,5 +9,6 @@ fun main() {
         configureRouting()
         configureCalLogging()
         configureContentNegotiation()
+        configureAuthentication()
     }.start(wait = true)
 }
