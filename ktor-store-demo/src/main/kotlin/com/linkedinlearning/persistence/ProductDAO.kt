@@ -4,13 +4,18 @@ import com.linkedinlearning.model.Product
 import kotlinx.coroutines.Dispatchers
 import org.jetbrains.exposed.sql.ResultRow
 import org.jetbrains.exposed.sql.insert
+import org.jetbrains.exposed.sql.select
 import org.jetbrains.exposed.sql.selectAll
 import org.jetbrains.exposed.sql.transactions.experimental.newSuspendedTransaction
 
 class ProductDAO {
 
     suspend fun product(upc: Int): Product? {
-        TODO()
+        return query {
+            ProductTable
+                .select { ProductTable.upc.eq(upc) }
+                .firstOrNull()?.toProduct()
+        }
     }
 
     suspend fun products(): List<Product> {
