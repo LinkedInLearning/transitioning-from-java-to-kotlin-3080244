@@ -9,6 +9,10 @@ import org.jetbrains.exposed.sql.transactions.experimental.newSuspendedTransacti
 
 class ProductDAO {
 
+    suspend fun product(upc: Int): Product? {
+        TODO()
+    }
+
     suspend fun products(): List<Product> {
         return query {
             ProductTable.selectAll().map { resultRow ->
