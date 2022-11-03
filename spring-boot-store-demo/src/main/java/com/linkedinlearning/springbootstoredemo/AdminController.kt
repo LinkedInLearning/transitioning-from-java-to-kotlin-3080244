@@ -2,6 +2,7 @@ package com.linkedinlearning.springbootstoredemo
 
 import com.linkedinlearning.springbootstoredemo.model.Product
 import com.linkedinlearning.springbootstoredemo.service.ProductService
+import com.linkedinlearning.springbootstoredemo.ui.converters.productToProductViewItem
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
