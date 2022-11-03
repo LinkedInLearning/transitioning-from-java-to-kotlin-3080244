@@ -18,14 +18,15 @@ import java.util.Map
  */
 @Controller
 class AdminController {
+
     @Autowired
-    var productService: ProductService? = null
+    lateinit var productService: ProductService
 
     private val logger = LoggerFactory.getLogger(AdminController::class.java)
 
     @GetMapping("/admin")
     fun showProducts(): ModelAndView {
-        val products = productService!!.allProducts()
+        val products = productService.allProducts()
         return ModelAndView("Admin", Map.of("products", products))
     }
 
@@ -35,8 +36,8 @@ class AdminController {
     }
 
     @PostMapping("/admin/new-product")
-    fun formPost(product: Product?, model: Model): String {
-        val insertedProduct = productService!!.insert(product)
+    fun formPost(product: Product, model: Model): String {
+        val insertedProduct = productService.insert(product)
         logger.info("/admin/new-product -> ${insertedProduct.name}")
         model.addAttribute("product", insertedProduct)
         return "ProductEntryForm"
