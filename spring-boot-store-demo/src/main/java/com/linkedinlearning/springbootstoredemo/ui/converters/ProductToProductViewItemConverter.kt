@@ -1,3 +1,4 @@
+@file:JvmName("ProductConverters")
 package com.linkedinlearning.springbootstoredemo.ui.converters
 
 import com.linkedinlearning.springbootstoredemo.model.Product

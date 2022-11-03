@@ -1,7 +1,7 @@
 package com.linkedinlearning.springbootstoredemo;
 
 import com.linkedinlearning.springbootstoredemo.service.ProductService;
-import com.linkedinlearning.springbootstoredemo.ui.converters.ProductToProductViewItemConverterKt;
+import com.linkedinlearning.springbootstoredemo.ui.converters.ProductConverters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +21,7 @@ public class StorefrontController {
     public ModelAndView showProducts() {
         var products = productService.allProducts();
         var productViewItems = products.stream()
-                .map(product -> ProductToProductViewItemConverterKt.productToProductViewItem(product));
+                .map(product -> ProductConverters.productToProductViewItem(product));
         return new ModelAndView("Storefront", Map.of("products", productViewItems.toList()));
     }
 }

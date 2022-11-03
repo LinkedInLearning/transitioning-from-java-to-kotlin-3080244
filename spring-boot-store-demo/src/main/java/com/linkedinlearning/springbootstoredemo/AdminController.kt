@@ -37,7 +37,7 @@ class AdminController {
     @PostMapping("/admin/new-product")
     fun formPost(product: Product?, model: Model): String {
         val insertedProduct = productService!!.insert(product)
-        logger.info("/admin/new-product -> \${insertedProduct.name}")
+        logger.info("/admin/new-product -> ${insertedProduct.name}")
         model.addAttribute("product", insertedProduct)
         return "ProductEntryForm"
     }
